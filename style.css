@@ -1,0 +1,131 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ✅ Background Gradient for All Pages */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(135deg, #000000, #333333, #ffffff); /* Black to White Gradient */
+    color: white;
+}
+
+/* ✅ WELCOME PAGE STYLES */
+.welcome-container {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Welcome Heading Animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* "Click Here to Start" Button */
+.start-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(90deg, #0f9b0f, #00ff00); /* Green EV theme */
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.start-btn:hover {
+    background: linear-gradient(90deg, #00ff00, #0f9b0f);
+    transform: scale(1.1);
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ HEAT PREDICTION PAGE STYLES */
+.prediction-container {
+    background: rgba(0, 0, 0, 0.9); /* Darker Semi-transparent Black */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    width: 50%;
+}
+
+/* Input File */
+input[type="file"] {
+    display: block;
+    margin: 15px auto;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    color: black;
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Upload & Predict Button */
+.upload-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(90deg, #ffcc00, #ff6600); /* Yellow-Orange EV Theme */
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.upload-btn:hover {
+    background: linear-gradient(90deg, #ff6600, #ffcc00);
+    transform: scale(1.05);
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #555555, #888888); /* Gray Theme */
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+    background: linear-gradient(90deg, #888888, #555555);
+    transform: scale(1.05);
+}
+
+/* Status Message */
+#status {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #00ff00; /* Green Status Text */
+}
+
+/* Hide Image Preview */
+.hidden {
+    display: none;
+}

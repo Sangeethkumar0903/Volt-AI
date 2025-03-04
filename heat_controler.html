@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battery Monitoring Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for( filename='heat.css') }}">
+    <script>
+        async function fetchBatteryStatus() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/heat_controller');
+                const data = await response.json();
+
+                document.getElementById('risk_probability').innerText = data.risk_probability + "%";
+                document.getElementById('battery_status').innerText = data.status;
+                document.getElementById('action_taken').innerText = data.action_taken;
+
+                // Change color based on risk level
+                const riskBox = document.getElementById('risk_probability');
+                if (data.risk_probability > 80) {
+                    riskBox.style.color = 'red';
+                } else if (data.risk_probability > 50) {
+                    riskBox.style.color = 'orange';
+                } else {
+                    riskBox.style.color = 'green';
+                }
+            } catch (error) {
+                console.error("Error fetching battery status:", error);
+            }
+        }
+
+        window.onload = fetchBatteryStatus; // Fetch data on page load
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Battery Monitoring Dashboard</h1>
+        
+        <div class="battery-info">
+            <h2>Battery Status</h2>
+            <p><strong>Risk Probability:</strong> <span id="risk_probability">Loading...</span></p>
+            <p><strong>Status:</strong> <span id="battery_status">Loading...</span></p>
+            <p><strong>Action Taken:</strong> <span id="action_taken">Loading...</span></p>
+        </div>
+
+        <button onclick="fetchBatteryStatus()">Refresh Data</button>
+    </div>
+</body>
+</html>
